@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Soundboard</title>
+  {{ style('style') }}
+</head>
+<body>
+  <section>
+    <h1>Soundboard!</h1>
+    <div class="container">
+    @each(file in fileNames)
+      <div class="item">
+        <form action="{{ route('SoundboardController.playAudio') }}" method="POST">
+          {{ csrfField() }}
+          <input name="file" type="hidden" value="{{ file }}"/>
+          <button class="pushable" type="submit">
+            <span class="front">
+              {{ file }}
+            </span>
+          </button>
+        </form>
+      </div>
+      @endeach
+    </div>
+  </section>
+</body>
+</html>

@@ -20,10 +20,5 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async ({ view }) => {
-  return view.render('welcome')
-})
-
-Route.get('/board', async ({ view }) => {
-  return view.render('board')
-})
+Route.get('/', 'SoundboardController.showBoard')
+Route.post('play', 'SoundboardController.playAudio')
